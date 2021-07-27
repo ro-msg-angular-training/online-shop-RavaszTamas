@@ -1,0 +1,42 @@
+@import "../shared/button-styling.scss";
+table tr td:first-child
+{
+    color: #4a4a4a;
+}
+
+td {
+    font-size: 1.25em;
+}
+
+.table-styling {
+    width: 100%;
+}
+
+.image-styling{
+    text-align: right;
+    width:100%;
+    max-width: 300px;
+    height: auto;
+}
+
+.content-wrapper{
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1200px;
+}
+
+.header-styling{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 32px;
+}
+
+.edit {
+    background-color: blue;
+}
+
+.delete {
+    background-color: red;
+}

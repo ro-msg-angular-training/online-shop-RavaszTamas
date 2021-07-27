@@ -1,0 +1,57 @@
+
+$odd-row-color:#f2f2f2;
+
+@import "../shared/button-styling.scss";
+
+.content-wrapper {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1200px;
+}
+
+.product-list-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 1.85em;
+}
+
+.action-buttons {
+    display: flex;
+    justify-content: space-around;
+}
+
+.table-wrapper {
+    width: 100%;
+}
+
+.table-styling {
+    width: 100%;
+}
+.table-styling tr:nth-child(even) {
+    background-color: $odd-row-color;
+}
+
+.name-styling {
+    text-decoration: none !important;
+    color: inherit;
+    font-weight: bolder;
+}
+
+
+th {
+    font-size: 1.75em;
+    background-color: $odd-row-color;
+    padding: 8px;
+}
+
+table {
+    border-collapse: collapse;
+}
+td {
+    text-align: center;
+}
+
+.details{
+    background-color: blue;
+}

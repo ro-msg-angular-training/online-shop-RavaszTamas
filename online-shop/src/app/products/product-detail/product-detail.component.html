@@ -1,0 +1,49 @@
+<div *ngIf="product" class="content-wrapper">
+  <header class="header-styling">
+    <h1>Product: {{product.name}}</h1>
+    <div>
+      <button *ngIf="checkIfItemInCart()===false" (click)="addItemToCart()" class="styled-button">Add to cart</button>
+      <button class="styled-button edit">Edit</button>
+      <button class="styled-button delete">Delete</button>
+    </div>
+  </header>
+  <table class="table-styling">
+    <tbody>
+      <tr>
+        <td>
+          Name
+        </td>
+        <td>
+          {{product.name}}
+        </td>
+        <td rowspan="3" style="text-align: right;">
+          <img class="image-styling" src={{product.image}} />
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Category
+        </td>
+        <td>
+          {{product.category}}
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Price
+        </td>
+        <td>
+          {{product.price | currency:'RON':'code' }}
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Description
+        </td>
+        <td colspan="3">
+          {{product.description}}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
