@@ -3,6 +3,9 @@
         <h1>
             Products
         </h1>
+        <button class="styled-button checkout" [title]="'checkout page'" [routerLink]="['/checkout']">
+            To Checkout
+        </button>
     </div>
     <div class="table-wrapper">
         <table class="table-styling">
@@ -10,8 +13,7 @@
                 <th>Category</th>
                 <th>Product Name</th>
                 <th>Price</th>
-                <th></th>
-                <th></th>
+                <th>Actions</th>
             </thead>
             <tbody>
                 <tr *ngFor="let product of products">
@@ -27,7 +29,7 @@
                         {{product.price | currency:'RON':'code'}}
                     </td>
                     <td>
-                        <button class="styled-button details" (click)="log(product.id)"
+                        <button class="styled-button edit" (click)="log(product.id)"
                             [title]="product.name + 'details'" [routerLink]="['/products',product.id]">
                             Details
                         </button>

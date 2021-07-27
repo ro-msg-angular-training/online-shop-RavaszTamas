@@ -1,4 +1,4 @@
-@import "../shared/button-styling.scss";
+@import "../shared/styling/button-styling.scss";
 table tr td:first-child
 {
     color: #4a4a4a;
@@ -19,12 +19,6 @@ td {
     height: auto;
 }
 
-.content-wrapper{
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 1200px;
-}
-
 .header-styling{
     display: flex;
     flex-direction: row;
@@ -33,10 +27,3 @@ td {
     padding-bottom: 32px;
 }
 
-.edit {
-    background-color: blue;
-}
-
-.delete {
-    background-color: red;
-}

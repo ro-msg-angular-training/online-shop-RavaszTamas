@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
-import { Product } from '../shared/product.model';
+import { ActivatedRoute, Params, Router } from '@angular/router';
+import { Product } from '../shared/models/Product.model';
 import { ProductsService } from '../shared/products.service';
-import { switchMap } from 'rxjs/operators'
 import { ShoppingCartService } from '../shared/CartService/ShoppingCartService.service';
 
 @Component({
@@ -16,30 +15,41 @@ export class ProductDetailComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private service: ProductsService,
-    private cartService: ShoppingCartService
+    private productService: ProductsService,
+    private cartService: ShoppingCartService,
+    private router: Router
   ) { }
 
   ngOnInit() {
     const productId = Number(this.route.snapshot.paramMap.get('productId'));
 
-    this.service.getProduct(productId)
+    this.productService.getProduct(productId)
       .subscribe(product => this.product = product, error => console.log(error))
   }
 
-  addItemToCart():void{
-    if(this.product !== undefined)
+  addItemToCart(): void {
+    if (this.product !== undefined)
       this.cartService.addToCart(this.product);
   }
 
-  checkIfItemInCart():Boolean{
-    if(this.product !== undefined)
+  checkIfItemInCart(): Boolean {
+    if (this.product !== undefined)
       return this.cartService.checkIfInCartById(this.product.id)
     return false;
   }
 
-  deleteItem(){
-
+  deleteItem() {
+    if (this.product !== undefined) {
+      if (this.checkIfItemInCart())
+        this.cartService.removeItemFromCart(this.product.id);
+        this.productService.deleteProduct(this.product.id).subscribe(
+          result => {
+            this.router.navigate(['/products'])
+            window.alert("Item deleted from database")
+          },
+          error => window.alert("Failed to delete item")
+        );
+    }
   }
 
 }
