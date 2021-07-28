@@ -3,9 +3,14 @@
         <h1>
             Products
         </h1>
-        <button class="styled-button checkout" [title]="'checkout page'" [routerLink]="['/checkout']">
-            To Checkout
-        </button>
+        <div>
+            <button class="styled-button" [title]="'checkout page'" [routerLink]="['/products/add']">
+                Add Product
+            </button>
+            <button class="styled-button checkout" [title]="'checkout page'" [routerLink]="['/checkout']">
+                Checkout
+            </button>
+        </div>
     </div>
     <div class="table-wrapper">
         <table class="table-styling">
@@ -29,8 +34,8 @@
                         {{product.price | currency:'RON':'code'}}
                     </td>
                     <td>
-                        <button class="styled-button edit" (click)="log(product.id)"
-                            [title]="product.name + 'details'" [routerLink]="['/products',product.id]">
+                        <button class="styled-button edit" (click)="log(product.id)" [title]="product.name + 'details'"
+                            [routerLink]="['/products',product.id]">
                             Details
                         </button>
                     </td>

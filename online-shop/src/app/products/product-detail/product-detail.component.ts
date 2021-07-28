@@ -3,6 +3,7 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Product } from '../shared/models/Product.model';
 import { ProductsService } from '../shared/products.service';
 import { ShoppingCartService } from '../shared/CartService/ShoppingCartService.service';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-product-detail',
@@ -10,6 +11,8 @@ import { ShoppingCartService } from '../shared/CartService/ShoppingCartService.s
   styleUrls: ['./product-detail.component.scss']
 })
 export class ProductDetailComponent implements OnInit {
+
+
 
   product: Product | undefined;
 

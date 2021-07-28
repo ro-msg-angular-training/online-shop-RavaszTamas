@@ -1,0 +1,21 @@
+<form *ngIf="productFormGroup" [formGroup]="productFormGroup" (ngSubmit)="onSubmit()" style="display: flex; flex-direction: column;">
+
+  <label for="name">Name:</label>
+  <input id="name" type="text" formControlName="name">
+
+  <label for="category">Category:</label>
+  <input id="category" type="text" formControlName="category">
+
+  <label for="image">Image:</label>
+  <input id="image" type="text" formControlName="image">
+
+
+  <label for="price">Price:</label>
+  <input id="price" type="text" formControlName="price">
+
+  <textarea id="description" rows="4" type="text" formControlName="description"></textarea>
+  <div class="button-section">
+    <button class="styled-submit-button" type="submit" [disabled]="!productFormGroup.valid">Submit</button>
+    <button class="styled-submit-button" type="button" (click)="goBack()">Cancel</button>
+  </div>
+</form>

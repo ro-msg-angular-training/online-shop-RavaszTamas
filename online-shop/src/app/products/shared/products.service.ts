@@ -8,7 +8,6 @@ import { httpOptions } from './constants';
   providedIn: 'root'
 })
 export class ProductsService {
-
   private productsUrl:string = 'http://localhost:3000/products';
 
 
@@ -38,5 +37,25 @@ export class ProductsService {
     console.log('deleteProduct() finished', result);
     return result;
   }
+
+  updateProduct(product: Product) {
+    console.log('updateProduct() enter', product);
+    const url = `${this.productsUrl}/${product.id}`;
+    console.log('updateProduct() path', url);
+    const result = this.httpClient.put(url,product,httpOptions);
+    console.log('updateProduct() finished', result);
+    return result;
+  }
+
+  createProduct(product: Product) {
+    console.log('createProduct() enter', product);
+    const url = `${this.productsUrl}`;
+    console.log('createProduct() path', url);
+    const result = this.httpClient.post(url,product,httpOptions);
+    console.log('createProduct() finished', result);
+    return result;
+  }
+
+
 
 }

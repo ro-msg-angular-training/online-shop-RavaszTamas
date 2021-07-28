@@ -1,0 +1,30 @@
+@import "../shared/styling/header-styling.scss";
+@import "../shared/styling/button-styling.scss";
+
+textarea {
+    resize: none;
+}
+
+label {
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+textarea {
+    margin-top: 16px;
+    margin-bottom: 16px;
+}
+
+.styled-submit-button{
+    font-size:$standard-font-size ;
+}
+
+.button-section{
+    display: flex;
+    width: 100%;
+    flex-direction: row-reverse;
+}
+
+.button-section button {
+    margin-left:8px;
+    margin-top: 8px;
+}

@@ -1,0 +1,6 @@
+<div *ngIf="productToEdit">
+  <header class="header-styling">
+    <h1>Edit: {{productToEdit.name}}</h1>
+  </header>
+  <app-product-form [productFormGroup]="productFormGroup" [submitCallback]="onSubmitCallback" [cancelCallback]="goBack"></app-product-form>
+</div>

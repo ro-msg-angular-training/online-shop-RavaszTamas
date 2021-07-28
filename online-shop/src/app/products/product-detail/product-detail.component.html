@@ -3,7 +3,7 @@
     <h1>Product: {{product.name}}</h1>
     <div>
       <button *ngIf="checkIfItemInCart()===false" (click)="addItemToCart()" class="styled-button">Add to cart</button>
-      <button class="styled-button edit">Edit</button>
+      <button class="styled-button edit" [routerLink]="['/products/edit',product.id]">Edit</button>
       <button class="styled-button delete" (click)="deleteItem()">Delete</button>
     </div>
   </header>

@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { Product } from '../shared/models/Product.model';
 import { ProductsService } from '../shared/products.service';
 

@@ -1,11 +1,10 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { httpOptions } from '../constants';
-import { OrderRequest } from '../models/orderRequest.model';
+import { OrderRequest } from '../models/OrderRequest.model';
 import { Product } from '../models/Product.model';
 import { ShoppingCartItem } from '../models/ShoppingCartItem.model';
-import { map } from 'rxjs/operators'
+
 @Injectable({
   providedIn: 'root'
 })
