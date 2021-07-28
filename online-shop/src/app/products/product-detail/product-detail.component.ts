@@ -4,6 +4,7 @@ import { Product } from '../shared/models/Product.model';
 import { ProductsService } from '../shared/products.service';
 import { ShoppingCartService } from '../shared/CartService/ShoppingCartService.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { AuthService } from 'src/app/auth/auth.service';
 
 @Component({
   selector: 'app-product-detail',
@@ -17,6 +18,7 @@ export class ProductDetailComponent implements OnInit {
   product: Product | undefined;
 
   constructor(
+    private authService: AuthService,
     private route: ActivatedRoute,
     private productService: ProductsService,
     private cartService: ShoppingCartService,
@@ -55,4 +57,10 @@ export class ProductDetailComponent implements OnInit {
     }
   }
 
+  isUserAdmin():boolean{
+    return this.authService.isLoggedIn && this.authService.hasRole("admin");
+  }
+  isUserCustomer():boolean{
+    return this.authService.isLoggedIn && (this.authService.hasRole("customer") || this.authService.hasRole("admin"));
+  }
 }

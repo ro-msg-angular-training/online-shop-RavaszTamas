@@ -4,10 +4,10 @@
             Products
         </h1>
         <div>
-            <button class="styled-button" [title]="'checkout page'" [routerLink]="['/products/add']">
+            <button *ngIf="isAdminUser()" class="styled-button" [title]="'checkout page'" [routerLink]="['/products/add']">
                 Add Product
             </button>
-            <button class="styled-button checkout" [title]="'checkout page'" [routerLink]="['/checkout']">
+            <button *ngIf="isAdminOrCustomer()" class="styled-button checkout" [title]="'checkout page'" [routerLink]="['/checkout']">
                 Checkout
             </button>
         </div>
@@ -34,7 +34,7 @@
                         {{product.price | currency:'RON':'code'}}
                     </td>
                     <td>
-                        <button class="styled-button edit" (click)="log(product.id)" [title]="product.name + 'details'"
+                        <button class="styled-button edit" [title]="product.name + 'details'"
                             [routerLink]="['/products',product.id]">
                             Details
                         </button>

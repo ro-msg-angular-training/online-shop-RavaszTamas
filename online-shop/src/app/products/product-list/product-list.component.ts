@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/auth/auth.service';
 import { Product } from '../shared/models/Product.model';
 import { ProductsService } from '../shared/products.service';
 
@@ -12,6 +13,7 @@ export class ProductListComponent implements OnInit {
   products: Product[] = [];
 
   constructor(
+    private authService: AuthService,
     private productsService: ProductsService
   ) {}
 
@@ -31,8 +33,12 @@ export class ProductListComponent implements OnInit {
     
   }
 
-  log(toLog:any){
-    console.log(toLog);
+  isAdminUser(){
+      return this.authService.isLoggedIn && this.authService.hasRole("admin");
   }
+
+  isAdminOrCustomer(){
+    return this.authService.isLoggedIn && (this.authService.hasRole("admin") || this.authService.hasRole("customer"));
+}
 
 }

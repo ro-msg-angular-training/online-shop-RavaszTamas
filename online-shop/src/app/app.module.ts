@@ -11,6 +11,7 @@ import { ProductEditorComponent } from './products/product-editor/product-editor
 import { ProductListComponent } from './products/product-list/product-list.component';
 import { ProductFormComponent } from './products/shared/components/product-form/product-form.component';
 import { ShoppingCartListComponent } from './products/shopping-cart-list/shopping-cart-list.component';
+import { LoginComponent } from './auth/login/login.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { ShoppingCartListComponent } from './products/shopping-cart-list/shoppin
     ShoppingCartListComponent,
     ProductEditorComponent,
     ProductCreatorComponent,
-    ProductFormComponent
+    ProductFormComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

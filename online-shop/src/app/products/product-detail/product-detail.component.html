@@ -2,9 +2,9 @@
   <header class="header-styling">
     <h1>Product: {{product.name}}</h1>
     <div>
-      <button *ngIf="checkIfItemInCart()===false" (click)="addItemToCart()" class="styled-button">Add to cart</button>
-      <button class="styled-button edit" [routerLink]="['/products/edit',product.id]">Edit</button>
-      <button class="styled-button delete" (click)="deleteItem()">Delete</button>
+      <button *ngIf="checkIfItemInCart()===false && isUserCustomer()" (click)="addItemToCart()" class="styled-button">Add to cart</button>
+      <button *ngIf="isUserAdmin()" class="styled-button edit" [routerLink]="['/products/edit',product.id]">Edit</button>
+      <button *ngIf="isUserAdmin()" class="styled-button delete" (click)="deleteItem()">Delete</button>
     </div>
   </header>
   <table class="table-styling">
