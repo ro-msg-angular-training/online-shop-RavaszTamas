@@ -7,7 +7,7 @@ import { addCartItem } from 'src/app/store/actions/order.actions';
 import { deleteProduct, getProduct } from 'src/app/store/actions/product.actions';
 import { selectIsAdmin, selectIsAdminOrCustomer } from 'src/app/store/selectors/auth.selectors';
 import { cartContainsItem } from 'src/app/store/selectors/order.selectors';
-import { getSelectedProduct } from 'src/app/store/selectors/product.selectors';
+import { getSelectedProduct, isLoading } from 'src/app/store/selectors/product.selectors';
 import { AppState } from 'src/app/store/state/app.state';
 
 @Component({
@@ -18,6 +18,7 @@ import { AppState } from 'src/app/store/state/app.state';
 export class ProductDetailComponent implements OnInit {
 
 
+  loading$ = this.store.pipe(select(isLoading));
 
   selectedProduct$ = this.store.pipe(select(getSelectedProduct));
   selectedItemInCart$ = of(true);

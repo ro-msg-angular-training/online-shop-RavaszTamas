@@ -1,23 +1,23 @@
 <div class="content-wrapper">
-    <header class="header-styling">
-        <h1>Sign in</h1>
-    </header>
-    <div>
+    <div *ngIf="(loading$ |async) == false; else spinner">
+        <header class="header-styling">
+            <h1>Sign in</h1>
+        </header>
         <form *ngIf="loginFormGroup" [formGroup]="loginFormGroup" (ngSubmit)="onSubmit()"
             style="display: flex; flex-direction: column;">
 
             <mat-form-field class="example-full-width" appearance="outline">
                 <mat-label>Username</mat-label>
-                <input type="text" matInput [formControl]="usernameControl"  [errorStateMatcher]="matcher">
+                <input type="text" matInput [formControl]="usernameControl" [errorStateMatcher]="matcher">
                 <mat-hint>Required!</mat-hint>
                 <mat-error *ngIf="usernameControl.hasError('required')">
-                  Username required
+                    Username required
                 </mat-error>
             </mat-form-field>
 
             <mat-form-field class="example-full-width" appearance="outline">
                 <mat-label>Password</mat-label>
-                <input type="password" matInput [formControl]="passwordControl"  [errorStateMatcher]="matcher">
+                <input type="password" matInput [formControl]="passwordControl" [errorStateMatcher]="matcher">
                 <mat-hint>Required!</mat-hint>
                 <mat-error *ngIf="passwordControl.hasError('required')">
                     Password required
@@ -32,4 +32,9 @@
             </p>
         </form>
     </div>
+    <ng-template #spinner>
+        <div class="spinner-wrapper-style">
+            <mat-spinner></mat-spinner>
+        </div>
+    </ng-template>
 </div>

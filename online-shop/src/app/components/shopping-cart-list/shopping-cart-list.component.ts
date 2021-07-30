@@ -4,7 +4,8 @@ import { select, Store } from '@ngrx/store';
 import { Observable, Subscription } from 'rxjs';
 import { ShoppingCartItem } from 'src/app/shared/models/ShoppingCartItem.model';
 import { createOrder, decrementItemQuantity, incrementItemQuantity, removeCartItem } from 'src/app/store/actions/order.actions';
-import { getAllShoppingCartItems, getNumberOfItems } from 'src/app/store/selectors/order.selectors';
+import { getAllShoppingCartItems, getNumberOfItems, isOrderLoading } from 'src/app/store/selectors/order.selectors';
+import { isLoading } from 'src/app/store/selectors/product.selectors';
 import { AppState } from 'src/app/store/state/app.state';
 
 @Component({
@@ -20,6 +21,9 @@ export class ShoppingCartListComponent implements OnInit {
   cartItems$: Observable<ShoppingCartItem[]> = this.store.pipe(select(getAllShoppingCartItems));
   numberOfItems$ = this.store.pipe(select(getNumberOfItems))
   canDispatch: boolean = false;
+
+  loading$: Observable<boolean> = this.store.pipe(select(isOrderLoading));
+
   constructor(
     private store: Store<AppState>,
     private _snackBar: MatSnackBar

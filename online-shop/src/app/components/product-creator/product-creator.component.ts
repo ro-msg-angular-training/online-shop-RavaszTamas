@@ -1,9 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { select } from '@ngrx/store';
 import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
 import { Product } from 'src/app/shared/models/Product.model';
 import { createProduct } from 'src/app/store/actions/product.actions';
+import { isLoading } from 'src/app/store/selectors/product.selectors';
 import { AppState } from 'src/app/store/state/app.state';
 
 @Component({
@@ -21,6 +24,7 @@ export class ProductCreatorComponent implements OnInit {
     description: new FormControl('', [Validators.required]),
   })
 
+  loading$: Observable<boolean> = this.store.pipe(select(isLoading));
 
   constructor(
     private router: Router,

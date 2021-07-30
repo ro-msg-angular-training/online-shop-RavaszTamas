@@ -4,39 +4,66 @@ import { Product } from "src/app/shared/models/Product.model";
 import { productActionTypes } from "../actions/product.actions";
 
 
-export interface ProductState extends  EntityState<Product> {
+export interface ProductState extends EntityState<Product> {
     productsLoaded: boolean;
-    selectedProduct?:Product;
+    loading: boolean;
+    selectedProduct?: Product;
 }
 
 export const adapter: EntityAdapter<Product> = createEntityAdapter<Product>({
-    selectId: (product:Product) => product.id
+    selectId: (product: Product) => product.id
 });
 
 export const initialProductState = adapter.getInitialState({
-    productsLoaded:false,
+    productsLoaded: false,
+    loading: false
 })
 
 export const productReducer = createReducer(
     initialProductState,
-    on(productActionTypes.productsLoaded, (state,action) => {
+    on(productActionTypes.loadProducts, (state) => {
+        return { ...state, loading: true }
+    }),
+    on(productActionTypes.productsLoaded, (state, action) => {
         return adapter.setAll(
             action.products,
-            {...state, productsLoaded:true}
+            { ...state, productsLoaded: true, loading: false }
         )
     }),
-    on(productActionTypes.getProductLoaded, (state,action) => {
-        return {...state, selectedProduct:action.product};
+    on(productActionTypes.getProduct, (state) => {
+        return { ...state, loading: true }
     }),
-    on(productActionTypes.createProduct, (state,action) =>{
-        return adapter.addOne(action.product,state)
+    on(productActionTypes.getProductLoaded, (state, action) => {
+        return { ...state, selectedProduct: action.product, loading: false };
     }),
-    on(productActionTypes.deleteProduct, (state,action)=>{
-        return adapter.removeOne(action.productId,state);
+    on(productActionTypes.createProduct, (state) => {
+        return { ...state, loading: true }
     }),
-    on(productActionTypes.updateProduct, (state,action)=>{
-        return adapter.updateOne(action.update,state)
-    })
+    on(productActionTypes.createProductSuccess, (state, action) => {
+        return adapter.addOne(action.product, { ...state, loading: false })
+    }),
+    on(productActionTypes.createProductFailure, (state) => {
+        return  { ...state, loading: false }
+    }),
+    on(productActionTypes.deleteProduct, (state) => {
+        return { ...state, loading: true }
+    }),
+    on(productActionTypes.deleteProductSuccess, (state, action) => {
+        return adapter.removeOne(action.productId, { ...state, loading: false });
+    }),
+    on(productActionTypes.deleteProductFailure, (state) => {
+        return  { ...state, loading: false }
+    }),
+    on(productActionTypes.updateProduct, (state) => {
+        return { ...state, loading: true }
+    }),
+    on(productActionTypes.updateProductSuccess, (state, action) => {
+        return adapter.updateOne(action.update, { ...state, loading: false })
+    }),
+    on(productActionTypes.updateProductFailure, (state) => {
+        return  { ...state, loading: false }
+    }),
+
 )
 
-export const { selectIds: selectProductIds, selectEntities: selectProductEntities, selectAll: selectAllProducts, selectTotal: selectTotalProducts} = adapter.getSelectors();
+export const { selectIds: selectProductIds, selectEntities: selectProductEntities, selectAll: selectAllProducts, selectTotal: selectTotalProducts } = adapter.getSelectors();

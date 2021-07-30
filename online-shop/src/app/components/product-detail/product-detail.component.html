@@ -1,19 +1,19 @@
-<div *ngIf="selectedProduct$ | async">
+<div *ngIf="(selectedProduct$ | async) && (loading$ | async) == false; else spinner">
   <header class="header-styling">
     <h1>Product: {{(selectedProduct$ | async)?.name}}</h1>
     <div>
 
       <button *ngIf="(selectedItemInCart$ | async) === false && (isCustomerOrAdmin$ | async)" mat-fab color="primary"
-        aria-label="Add to cart" (click)="addItemToCart()">
+        aria-label="Add to cart" (click)="addItemToCart()" [title]="'Add to cart'">
         <mat-icon>add_shopping_cart</mat-icon>
       </button>
 
       <button *ngIf="isAdmin$" mat-fab color="primary" aria-label="Edit"
-        [routerLink]="['/products/edit',(selectedProduct$ | async)?.id]">
+        [routerLink]="['/products/edit',(selectedProduct$ | async)?.id]" [title]="'Edit'">
         <mat-icon>edit</mat-icon>
       </button>
 
-      <button mat-fab *ngIf="isAdmin$" color="warn" (click)="deleteItem()"  aria-label="Delete">
+      <button mat-fab *ngIf="isAdmin$" color="warn" (click)="deleteItem()"  aria-label="Delete" [title]="'Delete'">
         <mat-icon>delete</mat-icon>
       </button>
 
@@ -59,3 +59,8 @@
     </tbody>
   </table>
 </div>
+<ng-template #spinner>
+  <div class="spinner-wrapper-style">
+      <mat-spinner></mat-spinner>
+  </div>
+</ng-template>

@@ -4,6 +4,11 @@ import { OrderCartState, selectAllOrders, selectTotalOrders } from "../reducers/
 
 export const productsFeatureSelector = createFeatureSelector<OrderCartState>('orders');
 
+export const isOrderLoading = createSelector(
+    productsFeatureSelector,
+    state => state.isOrderLoading
+)
+
 
 export const getNumberOfItems = createSelector(
     productsFeatureSelector,

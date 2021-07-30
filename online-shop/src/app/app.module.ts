@@ -31,6 +31,7 @@ import { FormsModule } from '@angular/forms';
 import { MAT_SNACK_BAR_DEFAULT_OPTIONS } from '@angular/material/snack-bar';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { AuthService } from './auth/services/auth.service';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { AuthService } from './auth/services/auth.service';
     LoginComponent
   ],
   imports: [
+    MatProgressSpinnerModule,
     MatSnackBarModule,
     MatTableModule,
     FormsModule,

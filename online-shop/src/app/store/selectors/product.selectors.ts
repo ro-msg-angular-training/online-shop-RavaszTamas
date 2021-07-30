@@ -13,6 +13,11 @@ export const getSelectedProduct = createSelector(
     state => state.selectedProduct
 )
 
+export const isLoading = createSelector(
+    productsFeatureSelector,
+    (state) => state.loading
+)
+
 export const getProductEntities = createSelector(
     productsFeatureSelector,
     selectProductEntities

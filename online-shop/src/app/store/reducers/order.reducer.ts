@@ -4,7 +4,8 @@ import { ShoppingCartItem } from "src/app/shared/models/ShoppingCartItem.model";
 import { orderActionTypes } from "../actions/order.actions";
 
 export interface OrderCartState extends EntityState<ShoppingCartItem> {
-    message:string
+    message:string;
+    isOrderLoading:boolean;
 }
 
 export const adapter: EntityAdapter<ShoppingCartItem> = createEntityAdapter<ShoppingCartItem>({
@@ -12,17 +13,21 @@ export const adapter: EntityAdapter<ShoppingCartItem> = createEntityAdapter<Shop
 });
 
 export const initialOrderState = adapter.getInitialState({
-    message:''
+    message:'',
+    isOrderLoading:false
 })
 
 
 export const orderReducer = createReducer(
     initialOrderState,
+    on(orderActionTypes.createOrder, (state) => {
+        return {...state,isOrderLoading:true};
+    }),
     on(orderActionTypes.createOrderFail, (state) => {
-        return {...state,message:"Order not added"};
+        return {...state,isOrderLoading:false,message:"Order not added"};
     }),
     on(orderActionTypes.createOrderSuccess, (state) => {
-        return adapter.removeAll({...state,message:"Order successfully added"});
+        return adapter.removeAll({...state,isOrderLoading:false,message:"Order successfully added"});
     }),
     on(orderActionTypes.addCartItem, (state, action) => {
         return adapter.addOne({ product: action.product, quantity: 1 }, state);

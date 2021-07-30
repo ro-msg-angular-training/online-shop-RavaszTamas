@@ -48,11 +48,11 @@ export class ProductsService {
   }
 
 
-  createProduct(product: Product) {
+  createProduct(product: Product): Observable<Product> {
     console.log('createProduct() enter', product);
     const url = `${this.productsUrl}`;
     console.log('createProduct() path', url);
-    const result = this.httpClient.post(url, product, httpOptions);
+    const result = this.httpClient.post<Product>(url, product, httpOptions);
     console.log('createProduct() finished', result);
     return result;
   }

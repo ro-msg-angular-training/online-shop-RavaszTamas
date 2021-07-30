@@ -3,9 +3,10 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UpdateNum } from '@ngrx/entity/src/models';
 import { select, Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
 import { Product } from 'src/app/shared/models/Product.model';
 import { getProduct, updateProduct } from 'src/app/store/actions/product.actions';
-import { getSelectedProduct } from 'src/app/store/selectors/product.selectors';
+import { getSelectedProduct, isLoading } from 'src/app/store/selectors/product.selectors';
 import { AppState } from 'src/app/store/state/app.state';
 
 @Component({
@@ -26,6 +27,7 @@ export class ProductEditorComponent implements OnInit {
 
   productToEdit$ = this.store.pipe(select(getSelectedProduct));
   selectedProduct?: Product;
+  loading$: Observable<boolean> = this.store.pipe(select(isLoading));
 
   constructor(
     private route: ActivatedRoute,

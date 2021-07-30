@@ -4,17 +4,17 @@
             Products
         </h1>
         <div>
-            <button mat-fab color="primary" class="my-fab-button-big" *ngIf="isAdmin$" [title]="'checkout page'"
+            <button mat-fab color="primary" class="my-fab-button-big" *ngIf="isAdmin$" [title]="'Add new product'"
                 [routerLink]="['/products/add']">
                 <mat-icon>add</mat-icon>
             </button>
-            <button mat-fab color="accent" class="my-fab-button-big"  *ngIf="isAdminOrCustomer$"
-                [title]="'checkout page'" [routerLink]="['/checkout']">
+            <button mat-fab color="accent" class="my-fab-button-big" *ngIf="isAdminOrCustomer$"
+                [title]="'Checkout page'" [routerLink]="['/checkout']">
                 <mat-icon>shopping_basket</mat-icon>
             </button>
         </div>
     </div>
-    <div class="table-wrapper mat-elevation-z8">
+    <ng-container *ngIf="!(loading$ | async); else spinner" class="table-wrapper mat-elevation-z8">
         <table class="table-styling" mat-table #table [dataSource]="products$">
             <ng-container matColumnDef="category">
                 <th mat-header-cell *matHeaderCellDef> Category </th>
@@ -31,7 +31,8 @@
             <ng-container matColumnDef="actions">
                 <th mat-header-cell *matHeaderCellDef> Actions </th>
                 <td mat-cell *matCellDef="let row">
-                    <button class="my-fab-button" mat-fab color="primary" [title]="row.name + 'details'" [routerLink]="['/products',row.id]">
+                    <button class="my-fab-button" mat-fab color="primary" [title]="row.name + ' details'"
+                        [routerLink]="['/products',row.id]">
                         <mat-icon>
                             read_more
                         </mat-icon>
@@ -41,5 +42,10 @@
             <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
             <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
         </table>
-    </div>
+    </ng-container>
+    <ng-template #spinner>
+        <div fxLayout="row" fxLayoutAlign="center center">
+            <mat-spinner></mat-spinner>
+        </div>
+    </ng-template>
 </div>

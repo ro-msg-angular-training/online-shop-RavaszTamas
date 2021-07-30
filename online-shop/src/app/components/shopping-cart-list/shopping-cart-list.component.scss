@@ -1,3 +1,9 @@
 @import "../../shared/styling/button-styling.scss";
 @import "../../shared/styling/table-styling.scss";
 @import "../../shared/styling/button-styling.scss";
+@import "../../shared/styling/spinner.style.scss";
+
+.align-header-right{
+    text-align: right;
+    justify-content: flex-end;
+}
