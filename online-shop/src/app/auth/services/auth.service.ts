@@ -2,9 +2,9 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
-import { httpOptions } from '../shared/constants';
-import { LoginCredentials } from '../shared/models/LoginCredentials.model';
-import { User } from './models/User.model';
+import { httpOptions } from 'src/app/shared/constants';
+import { LoginCredentials } from 'src/app/shared/models/LoginCredentials.model';
+import { User } from '../models/User.model';
 
 @Injectable({
   providedIn: 'root'

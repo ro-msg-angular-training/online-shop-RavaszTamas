@@ -7,7 +7,6 @@ import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AuthService } from './auth/auth.service';
 import { LoginComponent } from './components/login/login.component';
 import { ProductCreatorComponent } from './components/product-creator/product-creator.component';
 import { ProductFormComponent } from './shared/components/product-form/product-form.component';
@@ -31,6 +30,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 import { MAT_SNACK_BAR_DEFAULT_OPTIONS } from '@angular/material/snack-bar';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { AuthService } from './auth/services/auth.service';
 
 @NgModule({
   declarations: [
