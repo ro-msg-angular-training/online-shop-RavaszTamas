@@ -1,6 +1,6 @@
 import { createEntityAdapter, EntityAdapter, EntityState } from "@ngrx/entity";
 import { createReducer, on } from "@ngrx/store";
-import { Product } from "src/app/products/shared/models/Product.model";
+import { Product } from "src/app/shared/models/Product.model";
 import { productActionTypes } from "../actions/product.actions";
 
 

@@ -1,7 +1,4 @@
-import { createEntityAdapter, EntityAdapter } from "@ngrx/entity";
 import { createReducer, on } from "@ngrx/store";
-import { User } from "src/app/auth/models/User.model";
-import { ShoppingCartItem } from "src/app/products/shared/models/ShoppingCartItem.model";
 import { authActionTypes } from "../actions/auth.actions";
 import { initialAuthState } from "../state/auth.state";
 

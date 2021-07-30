@@ -1,7 +1,6 @@
 import { createAction, props } from "@ngrx/store";
-import { OrderRequest } from "src/app/products/shared/models/OrderRequest.model";
-import { Product } from "src/app/products/shared/models/Product.model";
-import { ShoppingCartItem } from "src/app/products/shared/models/ShoppingCartItem.model";
+import { Product } from "src/app/shared/models/Product.model";
+import { ShoppingCartItem } from "src/app/shared/models/ShoppingCartItem.model";
 
 export const addCartItem = createAction(
     '[Shopping Cart] Add Item',

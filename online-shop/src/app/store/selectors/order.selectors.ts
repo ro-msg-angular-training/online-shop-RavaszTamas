@@ -1,9 +1,14 @@
 import { createFeatureSelector, createSelector } from "@ngrx/store";
-import { OrderCartState, selectAllOrders } from "../reducers/order.reducer";
+import { OrderCartState, selectAllOrders, selectTotalOrders } from "../reducers/order.reducer";
 
 
 export const productsFeatureSelector = createFeatureSelector<OrderCartState>('orders');
 
+
+export const getNumberOfItems = createSelector(
+    productsFeatureSelector,
+    selectTotalOrders
+)
 
 export const getAllShoppingCartItems = createSelector(
     productsFeatureSelector,

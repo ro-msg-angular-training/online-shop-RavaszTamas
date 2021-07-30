@@ -1,21 +1,28 @@
 import { createEntityAdapter, EntityAdapter, EntityState } from "@ngrx/entity";
 import { createReducer, on } from "@ngrx/store";
-import { ShoppingCartItem } from "src/app/products/shared/models/ShoppingCartItem.model";
+import { ShoppingCartItem } from "src/app/shared/models/ShoppingCartItem.model";
 import { orderActionTypes } from "../actions/order.actions";
 
-export interface OrderCartState extends EntityState<ShoppingCartItem> {}
+export interface OrderCartState extends EntityState<ShoppingCartItem> {
+    message:string
+}
 
 export const adapter: EntityAdapter<ShoppingCartItem> = createEntityAdapter<ShoppingCartItem>({
     selectId: (item: ShoppingCartItem) => item.product.id
 });
 
-export const initialOrderState = adapter.getInitialState()
+export const initialOrderState = adapter.getInitialState({
+    message:''
+})
 
 
 export const orderReducer = createReducer(
     initialOrderState,
+    on(orderActionTypes.createOrderFail, (state) => {
+        return {...state,message:"Order not added"};
+    }),
     on(orderActionTypes.createOrderSuccess, (state) => {
-        return adapter.removeAll(state);
+        return adapter.removeAll({...state,message:"Order successfully added"});
     }),
     on(orderActionTypes.addCartItem, (state, action) => {
         return adapter.addOne({ product: action.product, quantity: 1 }, state);

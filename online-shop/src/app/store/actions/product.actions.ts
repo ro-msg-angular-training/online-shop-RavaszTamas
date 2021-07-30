@@ -1,6 +1,6 @@
 import { UpdateNum } from "@ngrx/entity/src/models";
 import { createAction, props } from "@ngrx/store";
-import { Product } from "src/app/products/shared/models/Product.model";
+import { Product } from "src/app/shared/models/Product.model";
 
 export const loadProducts = createAction(
     '[Products List] Load Products via service'

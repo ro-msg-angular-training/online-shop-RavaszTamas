@@ -1,14 +1,20 @@
 import { Injectable } from "@angular/core";
+import { MatSnackBar } from "@angular/material/snack-bar";
 import { Router } from "@angular/router";
 import { Actions, createEffect, ofType } from "@ngrx/effects";
 import { concatMap, map, tap } from "rxjs/operators";
-import { ProductsService } from "src/app/products/shared/products.service";
+import { ProductsService } from "src/app/services/product-service/products.service";
 import { productActionTypes } from "../actions/product.actions";
 
 @Injectable()
 export class ProductEffects {
 
-    constructor(private productService: ProductsService, private actions$: Actions, private router: Router) { }
+    constructor(
+        private productService: ProductsService,
+         private actions$: Actions,
+          private router: Router,
+          private _snackBar: MatSnackBar
+          ) { }
 
     loadProducts$ = createEffect(() =>
         this.actions$.pipe(
@@ -31,7 +37,10 @@ export class ProductEffects {
         this.actions$.pipe(
             ofType(productActionTypes.createProduct),
             concatMap((action) => this.productService.createProduct(action.product)),
-            tap(() => this.router.navigateByUrl('/products'))
+            tap(() => {
+                this._snackBar.open("Product created", "Dismiss", {duration:2000})
+                this.router.navigateByUrl('/products')
+            })
         ),
         { dispatch: false }
     );
@@ -40,7 +49,10 @@ export class ProductEffects {
         this.actions$.pipe(
             ofType(productActionTypes.deleteProduct),
             concatMap((action) => this.productService.deleteProduct(action.productId)),
-            tap(() => this.router.navigateByUrl('/products'))
+            tap(() => {
+                this._snackBar.open("Product deleted", "Dismiss", {duration:2000})
+                this.router.navigateByUrl('/products')
+            })
         ),
         { dispatch: false }
     );
@@ -49,7 +61,10 @@ export class ProductEffects {
         this.actions$.pipe(
             ofType(productActionTypes.updateProduct),
             concatMap((action) => this.productService.updateProduct(action.update.id, action.update.changes)),
-            tap((action) => this.router.navigate(['/products']))
+            tap(() => {
+                this._snackBar.open("Product updated", "Dismiss", {duration:2000})
+                this.router.navigate(['/products'])
+            })
         ),
         { dispatch: false }
     )

@@ -1,7 +1,7 @@
 import { HttpErrorResponse } from "@angular/common/http";
 import { createAction, props } from "@ngrx/store";
 import { User } from "src/app/auth/models/User.model";
-import { LoginCredentials } from "src/app/products/shared/models/LoginCredentials.model";
+import { LoginCredentials } from "src/app/shared/models/LoginCredentials.model";
 
 export const authLogin = createAction(
     '[Auth] Login',

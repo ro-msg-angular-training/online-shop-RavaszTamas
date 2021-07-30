@@ -1,0 +1,61 @@
+<div *ngIf="selectedProduct$ | async">
+  <header class="header-styling">
+    <h1>Product: {{(selectedProduct$ | async)?.name}}</h1>
+    <div>
+
+      <button *ngIf="(selectedItemInCart$ | async) === false && (isCustomerOrAdmin$ | async)" mat-fab color="primary"
+        aria-label="Add to cart" (click)="addItemToCart()">
+        <mat-icon>add_shopping_cart</mat-icon>
+      </button>
+
+      <button *ngIf="isAdmin$" mat-fab color="primary" aria-label="Edit"
+        [routerLink]="['/products/edit',(selectedProduct$ | async)?.id]">
+        <mat-icon>edit</mat-icon>
+      </button>
+
+      <button mat-fab *ngIf="isAdmin$" color="warn" (click)="deleteItem()"  aria-label="Delete">
+        <mat-icon>delete</mat-icon>
+      </button>
+
+    </div>
+  </header>
+  <table class="table-styling">
+    <tbody>
+      <tr>
+        <td>
+          Name
+        </td>
+        <td>
+          {{(selectedProduct$ | async)?.name}}
+        </td>
+        <td rowspan="3" style="text-align: right;">
+          <img class="image-styling" [src]="(selectedProduct$ | async)?.image" />
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Category
+        </td>
+        <td>
+          {{(selectedProduct$ | async)?.category}}
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Price
+        </td>
+        <td>
+          {{(selectedProduct$ | async)?.price | currency:'RON':'code' }}
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Description
+        </td>
+        <td colspan="3">
+          {{(selectedProduct$ | async)?.description}}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
