@@ -1,6 +1,5 @@
 import { Injectable } from "@angular/core";
 import { MatSnackBar } from "@angular/material/snack-bar";
-import { Router } from "@angular/router";
 import { Actions, createEffect, ofType } from "@ngrx/effects";
 import { Store } from "@ngrx/store";
 import { of } from "rxjs";
@@ -30,15 +29,15 @@ export class OrderEffects {
                 this.store.select(selectUser),
                 this.store.select(getAllShoppingCartItems)
             ),
-            switchMap(([action, user, cartItems]) => {
+            switchMap(([, user, cartItems]) => {
                 const request: OrderRequest = {
                     customer: user?.username,
-                    products: cartItems.map(item => { return { productId: item.product.id, quantity: item.quantity } })
+                    products: cartItems.map(item => { return { productId: item.productId, quantity: item.quantity } })
                 };
                 return this.shoppingCartService.sendOrderRequest(request).pipe(
-                    map((message) => orderActionTypes.createOrderSuccess()),
-                    tap(()=>{this._snackBar.open("Order updated", "Dismiss", {duration: 2000})}),
-                    catchError((error) => of(orderActionTypes.createOrderFail()))
+                    map(() => orderActionTypes.createOrderSuccess()),
+                    tap(()=>{this._snackBar.open("Order created", "Dismiss", {duration: 2000})}),
+                    catchError(() => of(orderActionTypes.createOrderFail()))
                 )
             }),
         )

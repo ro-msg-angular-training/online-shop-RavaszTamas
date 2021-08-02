@@ -1,0 +1,8 @@
+<h1 i18n="choose option" mat-dialog-title>Choose an option</h1>
+<div mat-dialog-content>
+  <p><span i18n="body delete product question">Do you want to delete the product:</span> {{data.productName}}</p>
+</div>
+<div mat-dialog-actions class="actions-style">
+  <button i18n="no button text" mat-raised-button color="warn" (click)="onNoClick()">No</button>
+  <button i18n="no button text" mat-raised-button color="primary" [mat-dialog-close]="choice" cdkFocusInitial>Ok</button>
+</div>

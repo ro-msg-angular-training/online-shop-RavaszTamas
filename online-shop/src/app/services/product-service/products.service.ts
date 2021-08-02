@@ -3,58 +3,43 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { httpOptions } from 'src/app/shared/constants';
 import { Product } from 'src/app/shared/models/Product.model';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductsService {
-  private productsUrl: string = 'http://localhost:3000/products';
+  private productsUrl = environment.baseUrl + '/products';
 
 
   constructor(private httpClient: HttpClient) { }
 
   getProducts(): Observable<Product[]> {
-    console.log('getProducts() enter');
-    const result = this.httpClient.get<Product[]>(this.productsUrl, httpOptions);
-    console.log('getProducts() finished', result);
-    return result;
+    return this.httpClient.get<Product[]>(this.productsUrl, httpOptions);
+
   }
 
   getProduct(id: number): Observable<Product> {
-    console.log('getProduct() enter', id);
     const url = `${this.productsUrl}/${id}`;
-    console.log('getProduct() path', url);
-    const result = this.httpClient.get<Product>(url, httpOptions);
-    console.log('getProduct() finished', result);
-    return result;
+    return this.httpClient.get<Product>(url, httpOptions);
+
   }
 
-  deleteProduct(id: number): Observable<any> {
-    console.log('deleteProduct() enter', id);
+  deleteProduct(id: number): Observable<void> {
     const url = `${this.productsUrl}/${id}`;
-    console.log('deleteProduct() path', url);
-    const result = this.httpClient.delete(url, httpOptions);
-    console.log('deleteProduct() finished', result);
-    return result;
+    return this.httpClient.delete<void>(url, httpOptions);
   }
 
-  updateProduct(productId: number, product: Partial<Product>) {
-    console.log('updateProduct() enter', productId, product);
+  updateProduct(productId: number, product: Partial<Product>): Observable<void> {
     const url = `${this.productsUrl}/${productId}`;
-    console.log('updateProduct() path', url);
-    const result = this.httpClient.put(url, product, httpOptions);
-    console.log('updateProduct() finished', result);
-    return result;
+    return this.httpClient.put<void>(url, product, httpOptions);
+
   }
 
 
   createProduct(product: Product): Observable<Product> {
-    console.log('createProduct() enter', product);
     const url = `${this.productsUrl}`;
-    console.log('createProduct() path', url);
-    const result = this.httpClient.post<Product>(url, product, httpOptions);
-    console.log('createProduct() finished', result);
-    return result;
+    return this.httpClient.post<Product>(url, product, httpOptions);
   }
 
 

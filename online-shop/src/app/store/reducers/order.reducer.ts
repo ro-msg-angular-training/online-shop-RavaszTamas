@@ -9,7 +9,7 @@ export interface OrderCartState extends EntityState<ShoppingCartItem> {
 }
 
 export const adapter: EntityAdapter<ShoppingCartItem> = createEntityAdapter<ShoppingCartItem>({
-    selectId: (item: ShoppingCartItem) => item.product.id
+    selectId: (item: ShoppingCartItem) => item.productId
 });
 
 export const initialOrderState = adapter.getInitialState({
@@ -30,20 +30,20 @@ export const orderReducer = createReducer(
         return adapter.removeAll({...state,isOrderLoading:false,message:"Order successfully added"});
     }),
     on(orderActionTypes.addCartItem, (state, action) => {
-        return adapter.addOne({ product: action.product, quantity: 1 }, state);
+        return adapter.addOne({ productId: action.productId, quantity: 1 }, state);
     }),
     on(orderActionTypes.removeCartItem, (state, action) => {
         return adapter.removeOne(action.productId, state);
     }),
     on(orderActionTypes.incrementItemQuantity, (state, action) => {
-        let cartItem = state.entities[action.productId];
+        const cartItem = state.entities[action.productId];
         if (cartItem !== undefined) {
             return adapter.setOne({...cartItem, quantity:cartItem.quantity+1}, state)
         }
         return state;
     }),
     on(orderActionTypes.decrementItemQuantity, (state, action) => {
-        let cartItem = state.entities[action.productId];
+        const cartItem = state.entities[action.productId];
         if (cartItem !== undefined && cartItem.quantity > 1) {
             return adapter.setOne({...cartItem, quantity:cartItem.quantity-1}, state)
         }

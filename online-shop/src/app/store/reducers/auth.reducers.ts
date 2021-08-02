@@ -7,7 +7,6 @@ import { initialAuthState } from "../state/auth.state";
 export const authReducer = createReducer(
     initialAuthState,
     on(authActionTypes.authSuccess, (state, action) => {
-        console.log("authenticated")
         return {
             ...state,
             user: action.user,

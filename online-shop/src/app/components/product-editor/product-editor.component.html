@@ -1,6 +1,7 @@
-<div *ngIf="(productToEdit$ | async) && (loading$ | async) == false; else spinner">
+<div *ngIf="(productToEdit$ | async) && (loading$ | async) === false; else spinner">
   <header class="header-styling">
-    <h1>Edit: {{(productToEdit$ | async)?.name}}</h1>
+    <h1><span i18n="page header shopping cart|The name of the table to display shopping cart items">Edit</span>:
+       {{(productToEdit$ | async)?.name}}</h1>
   </header>
   <app-product-form [productFormGroup]="productFormGroup" [submitCallback]="onSubmitCallback" [cancelCallback]="goBack"></app-product-form>
 </div>

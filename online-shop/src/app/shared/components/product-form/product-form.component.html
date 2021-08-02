@@ -2,61 +2,74 @@
   style="display: flex; flex-direction: column;">
 
   <mat-form-field class="example-full-width" appearance="outline">
-    <mat-label>Name</mat-label>
+    <mat-label i18n="name label| Form field label for name">Name</mat-label>
     <input type="text" matInput formControlName="name" [errorStateMatcher]="matcher">
-    <mat-hint>Required!</mat-hint>
-    <mat-error *ngIf="productFormGroup.controls.name.hasError('required')">
-      Username required
-    </mat-error>
+    <mat-hint i18n="hint required| Describes a hint for the user">Required!</mat-hint>
+    <mat-error 
+    i18n="error name required| Error for showing the wrong input"
+     *ngIf="productFormGroup.controls.name.hasError('required')"
+     >Name required</mat-error>
   </mat-form-field>
 
 
   <mat-form-field class="example-full-width" appearance="outline">
-    <mat-label>Category</mat-label>
+    <mat-label i18n="category label| Form field label for category">Category</mat-label>
     <input type="text" matInput formControlName="category" [errorStateMatcher]="matcher">
-    <mat-hint>Required!</mat-hint>
-    <mat-error *ngIf="productFormGroup.controls.category.hasError('required')">
-      Catgory required
-    </mat-error>
+    <mat-hint i18n="hint required| Describes a hint for the user">Required!</mat-hint>
+    <mat-error 
+    i18n="error category required| Error for showing the wrong input"
+    *ngIf="productFormGroup.controls.category.hasError('required')"
+    >Category required</mat-error>
   </mat-form-field>
 
   <mat-form-field class="example-full-width" appearance="outline">
-    <mat-label>Image</mat-label>
+    <mat-label i18n="image label| Form field label for image">Image</mat-label>
     <input type="text" matInput formControlName="image" [errorStateMatcher]="matcher">
-    <mat-hint>Required and must be correct Url!</mat-hint>
-    <mat-error *ngIf="productFormGroup.controls.image.hasError('required')">
-      URL required
-    </mat-error>
-    <mat-error *ngIf="productFormGroup.controls.image.hasError('pattern')">
-      Invalid URL
-    </mat-error>
+    <mat-hint i18n="hint required and correct url | Describes a hint for the user"
+    >Required and must be correct Url!</mat-hint><mat-error 
+    i18n="error url required| Error for showing the wrong input"
+    *ngIf="productFormGroup.controls.image.hasError('required')"
+    >URL required</mat-error>
+    <mat-error
+    i18n="error invalid url | Error for showing the wrong input"
+    *ngIf="productFormGroup.controls.image.hasError('pattern')"
+    >Invalid URL </mat-error>
   </mat-form-field>
 
 
   <mat-form-field class="example-full-width" appearance="outline">
-    <mat-label>Price</mat-label>
+    <mat-label i18n="price label| Form field label for price">Price</mat-label>
     <input type="number" matInput formControlName="price" [errorStateMatcher]="matcher">
-    <mat-hint>Required and must be a correct number!</mat-hint>
-    <mat-error *ngIf="productFormGroup.controls.price.hasError('required')">
-      Price required
-    </mat-error>
-    <mat-error *ngIf="productFormGroup.controls.price.hasError('pattern')">
-      Invalid price input
-    </mat-error>
+    <mat-hint
+    i18n="hint required and correct price number | Describes a hint for the user">
+    Required and must be a correct number!</mat-hint>
+    <mat-error
+    i18n="error price required| Error for showing the wrong input"
+    *ngIf="productFormGroup.controls.price.hasError('required')"
+    >Price required</mat-error>
+    <mat-error 
+    i18n="error invalid price | Error for showing the wrong input"
+    *ngIf="productFormGroup.controls.price.hasError('pattern')"
+    >Invalid price input</mat-error>
   </mat-form-field>
 
   <mat-form-field class="example-full-width" appearance="outline">
-    <mat-label>Description</mat-label>
+    <mat-label i18n="description label| Form field label for description">Description</mat-label>
     <textarea type="text" rows="4" matInput formControlName="description" [errorStateMatcher]="matcher"></textarea>
-    <mat-hint>Required!</mat-hint>
-    <mat-error *ngIf="productFormGroup.controls.description.hasError('required')">
-      Description required
-    </mat-error>
+    <mat-hint i18n="hint required| Describes a hint for the user">Required!</mat-hint>
+    <mat-error
+    i18n="error description required| Error for showing the wrong input"
+    *ngIf="productFormGroup.controls.description.hasError('required')"
+    >Description required</mat-error>
   </mat-form-field>
 
-  <!-- <textarea id="description" rows="4" type="text" formControlName="description"></textarea> -->
   <div class="button-section">
-    <button mat-raised-button color="primary" class="styled-submit-button" type="submit" [disabled]="!productFormGroup.valid">Submit</button>
-    <button mat-raised-button color="warn" class="styled-submit-button" type="button" (click)="goBack()">Cancel</button>
+    <button 
+    i18n="submit button"
+    mat-raised-button color="primary" class="styled-submit-button" type="submit"
+      [disabled]="!productFormGroup.valid">Submit</button>
+    <button
+    i18n="cancel button"
+    mat-raised-button color="warn" class="styled-submit-button" type="button" (click)="goBack()">Cancel</button>
   </div>
 </form>

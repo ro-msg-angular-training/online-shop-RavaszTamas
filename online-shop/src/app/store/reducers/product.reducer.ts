@@ -22,46 +22,46 @@ export const initialProductState = adapter.getInitialState({
 export const productReducer = createReducer(
     initialProductState,
     on(productActionTypes.loadProducts, (state) => {
-        return { ...state, loading: true }
+        return { ...state, loading: true };
     }),
     on(productActionTypes.productsLoaded, (state, action) => {
         return adapter.setAll(
             action.products,
             { ...state, productsLoaded: true, loading: false }
-        )
+        );
     }),
     on(productActionTypes.getProduct, (state) => {
-        return { ...state, loading: true }
+        return { ...state, loading: true };
     }),
     on(productActionTypes.getProductLoaded, (state, action) => {
         return { ...state, selectedProduct: action.product, loading: false };
     }),
     on(productActionTypes.createProduct, (state) => {
-        return { ...state, loading: true }
+        return { ...state, loading: true };
     }),
     on(productActionTypes.createProductSuccess, (state, action) => {
-        return adapter.addOne(action.product, { ...state, loading: false })
+        return adapter.addOne(action.product, { ...state, loading: false });
     }),
     on(productActionTypes.createProductFailure, (state) => {
-        return  { ...state, loading: false }
+        return { ...state, loading: false };
     }),
     on(productActionTypes.deleteProduct, (state) => {
-        return { ...state, loading: true }
+        return { ...state, loading: true };
     }),
     on(productActionTypes.deleteProductSuccess, (state, action) => {
         return adapter.removeOne(action.productId, { ...state, loading: false });
     }),
     on(productActionTypes.deleteProductFailure, (state) => {
-        return  { ...state, loading: false }
+        return { ...state, loading: false };
     }),
     on(productActionTypes.updateProduct, (state) => {
-        return { ...state, loading: true }
+        return { ...state, loading: true };
     }),
     on(productActionTypes.updateProductSuccess, (state, action) => {
-        return adapter.updateOne(action.update, { ...state, loading: false })
+        return adapter.updateOne(action.update, { ...state, loading: false });
     }),
     on(productActionTypes.updateProductFailure, (state) => {
-        return  { ...state, loading: false }
+        return { ...state, loading: false };
     }),
 
 )

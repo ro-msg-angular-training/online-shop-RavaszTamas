@@ -3,7 +3,7 @@ import { MatSnackBar } from "@angular/material/snack-bar";
 import { Router } from "@angular/router";
 import { Actions, createEffect, ofType } from "@ngrx/effects";
 import { of } from "rxjs";
-import { catchError, concatMap, delay, map, switchMap, tap } from "rxjs/operators";
+import { catchError, concatMap, map, switchMap, tap } from "rxjs/operators";
 import { ProductsService } from "src/app/services/product-service/products.service";
 import { productActionTypes } from "../actions/product.actions";
 

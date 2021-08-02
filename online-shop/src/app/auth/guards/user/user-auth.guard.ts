@@ -3,7 +3,7 @@ import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTr
 import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { selectIsUser, selectUser } from 'src/app/store/selectors/auth.selectors';
+import { selectUser } from 'src/app/store/selectors/auth.selectors';
 import { AppState } from 'src/app/store/state/app.state';
 
 @Injectable({
@@ -21,11 +21,11 @@ export class UserAuthGuard implements CanActivate {
       select(selectUser),
       map((user) => {
         if (user) {
-          if(state.url == '/login')
+          if (state.url === '/login')
             this.router.navigate([`/products`]);
           return true;
         } else {
-          if(state.url == '/login')
+          if (state.url === '/login')
             return true;
           this.router.navigate([`/login`]);
           return false;

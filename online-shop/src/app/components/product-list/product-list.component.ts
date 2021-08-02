@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { Product } from 'src/app/shared/models/Product.model';
@@ -11,7 +11,7 @@ import { AppState } from 'src/app/store/state/app.state';
   templateUrl: './product-list.component.html',
   styleUrls: ['./product-list.component.scss']
 })
-export class ProductListComponent implements OnInit {
+export class ProductListComponent {
 
   displayedColumns: string[] = ['category', 'name', 'price', 'actions'];
 
@@ -19,14 +19,11 @@ export class ProductListComponent implements OnInit {
 
   loading$: Observable<boolean> = this.store.pipe(select(isLoading));
 
-  isAdmin$ = this.store.pipe(select(selectIsAdmin))
+  isAdmin$ = this.store.pipe(select(selectIsAdmin));
 
-  isAdminOrCustomer$ = this.store.pipe(select(selectIsAdminOrCustomer))
+  isAdminOrCustomer$ = this.store.pipe(select(selectIsAdminOrCustomer));
 
   constructor(
     private store: Store<AppState>
   ) { }
-
-  ngOnInit() { }
-
 }

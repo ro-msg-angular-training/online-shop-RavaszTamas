@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
 import { select, Store } from '@ngrx/store';
 import { of } from 'rxjs';
@@ -9,6 +10,7 @@ import { selectIsAdmin, selectIsAdminOrCustomer } from 'src/app/store/selectors/
 import { cartContainsItem } from 'src/app/store/selectors/order.selectors';
 import { getSelectedProduct, isLoading } from 'src/app/store/selectors/product.selectors';
 import { AppState } from 'src/app/store/state/app.state';
+import { DeleteProductDialogComponent } from '../delete-product-dialog/delete-product-dialog.component';
 
 @Component({
   selector: 'app-product-detail',
@@ -24,29 +26,44 @@ export class ProductDetailComponent implements OnInit {
   selectedItemInCart$ = of(true);
   selectedProductObject?: Product;
 
-  isCustomerOrAdmin$ = this.store.pipe(select(selectIsAdminOrCustomer))
-  isAdmin$ = this.store.pipe(select(selectIsAdmin))
+  isCustomerOrAdmin$ = this.store.pipe(select(selectIsAdminOrCustomer));
+  isAdmin$ = this.store.pipe(select(selectIsAdmin));
 
   constructor(
     private route: ActivatedRoute,
-    private store: Store<AppState>
+    private store: Store<AppState>,
+    public dialog: MatDialog
   ) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     const productId = Number(this.route.snapshot.paramMap.get('productId'));
-    this.store.dispatch(getProduct({ productId }))
+    this.store.dispatch(getProduct({ productId }));
     this.selectedProduct$.subscribe((item) => (this.selectedProductObject = item));
-    this.selectedItemInCart$ = this.store.select(cartContainsItem(productId))
+    this.selectedItemInCart$ = this.store.pipe(select(cartContainsItem(productId)));
   }
 
   addItemToCart(): void {
     if (this.selectedProductObject !== undefined)
-      this.store.dispatch(addCartItem({ product: this.selectedProductObject }))
+      this.store.dispatch(addCartItem({ productId: this.selectedProductObject.id }));
   }
 
-  deleteItem() {
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(DeleteProductDialogComponent, {
+      width: '250px',
+      data: { productName: this.selectedProductObject?.name }
+    });
+
+    dialogRef.afterClosed().subscribe((result: boolean) => {
+      if (result) {
+        this.deleteItem();
+      }
+    });
+  }
+
+  deleteItem(): void {
     if (this.selectedProductObject !== undefined) {
-      this.store.dispatch(deleteProduct({ productId: this.selectedProductObject.id }))
+      this.store.dispatch(deleteProduct({ productId: this.selectedProductObject.id }));
     }
   }
 }

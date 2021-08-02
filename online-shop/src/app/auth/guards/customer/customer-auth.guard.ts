@@ -3,16 +3,13 @@ import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTr
 import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { selectIsAdminOrCustomer, selectIsCustomer } from 'src/app/store/selectors/auth.selectors';
+import { selectIsAdminOrCustomer } from 'src/app/store/selectors/auth.selectors';
 import { AppState } from 'src/app/store/state/app.state';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class CustomerAuthGuard implements CanActivate {
-
-  isCustomer?: boolean = false;
-
   constructor(private store: Store<AppState>, private router: Router) { }
 
 
@@ -20,11 +17,10 @@ export class CustomerAuthGuard implements CanActivate {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     return this.store.pipe(select(selectIsAdminOrCustomer), map((result) => {
-      if (result)
+      if (result) {
         return true;
+      }
       return false;
     }));
   }
-
-
 }

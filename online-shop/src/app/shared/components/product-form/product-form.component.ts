@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { MyErrorStateMatcher } from '../../matchers/MyErrorStateMatcher';
 import { Product } from '../../models/Product.model';
@@ -8,33 +8,27 @@ import { Product } from '../../models/Product.model';
   templateUrl: './product-form.component.html',
   styleUrls: ['./product-form.component.scss']
 })
-export class ProductFormComponent implements OnInit {
+export class ProductFormComponent {
 
   matcher = new MyErrorStateMatcher();
 
 
   @Input()
-  productFormGroup:FormGroup | undefined;
+  productFormGroup: FormGroup | undefined;
 
   @Input()
-  submitCallback:((args: Product) => void) | undefined;
+  submitCallback: ((args: Product) => void) | undefined;
 
   @Input()
-  cancelCallback:(() => void) | undefined;
+  cancelCallback: (() => void) | undefined;
 
-  constructor(
-  ) { }
-
-  ngOnInit() {
+  onSubmit(): void {
+    if (this.submitCallback !== undefined && this.productFormGroup !== undefined)
+      this.submitCallback({ ...this.productFormGroup.value });
   }
 
-  onSubmit() {
-    if(this.submitCallback !== undefined && this.productFormGroup !== undefined)
-      this.submitCallback({...this.productFormGroup.value});
-  }
-
-  goBack() {
-    if(this.cancelCallback !== undefined)
+  goBack(): void {
+    if (this.cancelCallback !== undefined)
       this.cancelCallback();
   }
 

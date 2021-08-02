@@ -12,7 +12,7 @@ export class ProductsResolver implements Resolve<Observable<any>>{
 
     constructor(private store: Store<AppState>){}
 
-    resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<any> | Observable<Observable<any>> | Promise<Observable<any>> {
+    resolve(_route: ActivatedRouteSnapshot, _state: RouterStateSnapshot): Observable<any> | Observable<Observable<any>> | Promise<Observable<any>> {
         return this.store.pipe(
             select(areProductsLoaded),
             tap((productsLoaded)=>{

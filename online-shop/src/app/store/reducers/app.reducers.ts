@@ -1,5 +1,3 @@
-import { ActionReducerMap, combineReducers } from "@ngrx/store";
-import { AppState } from "../state/app.state";
 import { authReducer } from "./auth.reducers";
 import { orderReducer } from "./order.reducer";
 import { productReducer } from "./product.reducer";

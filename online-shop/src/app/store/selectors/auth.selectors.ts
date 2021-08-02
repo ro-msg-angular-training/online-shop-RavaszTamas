@@ -11,12 +11,7 @@ export const selectIsAuthenticated = createSelector(
 
 export const selectUser = createSelector(
     authenticationState,
-    (state:AuthState) => {
-
-        console.log(state)
-
-        return state.user
-    }
+    (state:AuthState) =>  state.user
 )
 
 export const selectMessage = createSelector(

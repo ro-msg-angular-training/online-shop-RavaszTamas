@@ -1,4 +1,4 @@
 export interface OrderRequest {
-    customer?:string
-    products:({productId:number,quantity:number})[]
+    customer?:string;
+    products:({productId:number,quantity:number})[];
 }
