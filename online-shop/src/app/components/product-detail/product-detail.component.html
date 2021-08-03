@@ -1,0 +1,60 @@
+<div *ngIf="(selectedProduct$ | async) && (loading$ | async) === false; else spinner">
+  <header class="header-styling">
+    <h1><span i18n="details page header">Product details</span>: {{(selectedProduct$ | async)?.name}}</h1>
+    <div>
+
+      <button *ngIf="(selectedItemInCart$ | async) === false && (isCustomerOrAdmin$ | async)" mat-fab color="primary"
+        aria-label="Add to cart" (click)="addItemToCart()" i18n-title="add to cart button title" title="Add to cart">
+        <mat-icon>add_shopping_cart</mat-icon>
+      </button>
+
+      <button *ngIf="isAdmin$" mat-fab color="primary" aria-label="Edit"
+        [routerLink]="['/products/edit',(selectedProduct$ | async)?.id]" i18n-title="edit button title" title="Edit">
+        <mat-icon>edit</mat-icon>
+      </button>
+
+      <button mat-fab *ngIf="isAdmin$" color="warn" (click)="openDialog()"  aria-label="Delete"
+      i18n-title="delete button title"
+      title="Delete">
+        <mat-icon>delete</mat-icon>
+      </button>
+
+    </div>
+  </header>
+  <table class="table-styling">
+    <tbody>
+      <tr>
+        <td i18n="name label">Name</td>
+        <td>
+          {{(selectedProduct$ | async)?.name}}
+        </td>
+        <td rowspan="3" style="text-align: right;">
+          <img class="image-styling" [src]="(selectedProduct$ | async)?.image" />
+        </td>
+      </tr>
+      <tr>
+        <td i18n="category label">Category</td>
+        <td>
+          {{(selectedProduct$ | async)?.category}}
+        </td>
+      </tr>
+      <tr>
+        <td i18n="price label">Price</td>
+        <td>
+          {{(selectedProduct$ | async)?.price | currency:'RON':'code' }}
+        </td>
+      </tr>
+      <tr>
+        <td i18n="description label">Description</td>
+        <td colspan="3">
+          {{(selectedProduct$ | async)?.description}}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<ng-template #spinner>
+  <div class="spinner-wrapper-style">
+      <mat-spinner></mat-spinner>
+  </div>
+</ng-template>

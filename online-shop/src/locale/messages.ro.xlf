@@ -1,0 +1,484 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="ro-RO" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="7549695930447114662" datatype="html">
+        <source>Choose an option</source>
+        <target>Alege o opțiune</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/delete-product-dialog/delete-product-dialog.component.html</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+        <note priority="1" from="description">choose option</note>
+      </trans-unit>
+      <trans-unit id="4135111219419275833" datatype="html">
+        <source>Do you want to delete the product:</source>
+        <target>Doriți să ștergeți produsul:</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/delete-product-dialog/delete-product-dialog.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+        <note priority="1" from="description">body delete product question</note>
+      </trans-unit>
+      <trans-unit id="3542042671420335679" datatype="html">
+        <source>No</source>
+        <target>Nu</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/delete-product-dialog/delete-product-dialog.component.html</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+        <note priority="1" from="description">no button text</note>
+      </trans-unit>
+      <trans-unit id="8720977247725652816" datatype="html">
+        <source>Ok</source>
+        <target>Da</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/delete-product-dialog/delete-product-dialog.component.html</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+        <note priority="1" from="description">ok button text</note>
+      </trans-unit>
+      <trans-unit id="5207635742003539443" datatype="html">
+        <source>Sign in</source>
+        <target>Connectare</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/login/login.component.html</context>
+          <context context-type="linenumber">4,5</context>
+        </context-group>
+        <note priority="1" from="description">sign in</note>
+      </trans-unit>
+      <trans-unit id="5248717555542428023" datatype="html">
+        <source>Username</source>
+        <target>Nume de utilizator</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/login/login.component.html</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+        <note priority="1" from="description">username</note>
+      </trans-unit>
+      <trans-unit id="2469566406783620064" datatype="html">
+        <source>Required!</source>
+        <target>Olbigatoriu!</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/login/login.component.html</context>
+          <context context-type="linenumber">12,14</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/login/login.component.html</context>
+          <context context-type="linenumber">21,23</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/product-form/product-form.component.html</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/product-form/product-form.component.html</context>
+          <context context-type="linenumber">18</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/product-form/product-form.component.html</context>
+          <context context-type="linenumber">59</context>
+        </context-group>
+        <note priority="1" from="description"> Describes a hint for the user</note>
+        <note priority="1" from="meaning">hint required</note>
+      </trans-unit>
+      <trans-unit id="7503287401032375062" datatype="html">
+        <source>Username required</source>
+        <target>Nume de utilizator obligatoriu</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/login/login.component.html</context>
+          <context context-type="linenumber">15,18</context>
+        </context-group>
+        <note priority="1" from="description"> Error for showing the wrong input</note>
+        <note priority="1" from="meaning">error username required</note>
+      </trans-unit>
+      <trans-unit id="1431416938026210429" datatype="html">
+        <source>Password</source>
+        <target>Parola</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/login/login.component.html</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+        <note priority="1" from="description">password</note>
+      </trans-unit>
+      <trans-unit id="6458174213118315281" datatype="html">
+        <source>Password required</source>
+        <target>Parolă necesară</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/login/login.component.html</context>
+          <context context-type="linenumber">24,26</context>
+        </context-group>
+        <note priority="1" from="description"> Error for showing the wrong input</note>
+        <note priority="1" from="meaning">error password required</note>
+      </trans-unit>
+      <trans-unit id="935187492052582731" datatype="html">
+        <source>Submit</source>
+        <target>Trimite</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/login/login.component.html</context>
+          <context context-type="linenumber">30,31</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/product-form/product-form.component.html</context>
+          <context context-type="linenumber">70</context>
+        </context-group>
+        <note priority="1" from="description">submit button</note>
+      </trans-unit>
+      <trans-unit id="8623547197771564736" datatype="html">
+        <source>Login failed! Invalid password and/or username!</source>
+        <target>Autentificare eșuată! Parolă și/sau nume de utilizator nevalide!</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/login/login.component.html</context>
+          <context context-type="linenumber">34,37</context>
+        </context-group>
+        <note priority="1" from="description"> Invalid login credentials</note>
+        <note priority="1" from="meaning">error credential</note>
+      </trans-unit>
+      <trans-unit id="8156375653686459833" datatype="html">
+        <source>Add product</source>
+        <target>Adăugați produs</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/product-creator/product-creator.component.html</context>
+          <context context-type="linenumber">3,5</context>
+        </context-group>
+        <note priority="1" from="description">Page header</note>
+        <note priority="1" from="meaning">add product header</note>
+      </trans-unit>
+      <trans-unit id="1070574421256058549" datatype="html">
+        <source>Product details</source>
+        <target>Detalii produs</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/product-detail/product-detail.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+        <note priority="1" from="description">details page header</note>
+      </trans-unit>
+      <trans-unit id="5871412787804796799" datatype="html">
+        <source>Add to cart</source>
+        <target>Adaugă în coș</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/product-detail/product-detail.component.html</context>
+          <context context-type="linenumber">7,8</context>
+        </context-group>
+        <note priority="1" from="description">add to cart button title</note>
+      </trans-unit>
+      <trans-unit id="7585826646011739428" datatype="html">
+        <source>Edit</source>
+        <target>Editați</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/product-detail/product-detail.component.html</context>
+          <context context-type="linenumber">12,13</context>
+        </context-group>
+        <note priority="1" from="description">edit button title</note>
+      </trans-unit>
+      <trans-unit id="7022070615528435141" datatype="html">
+        <source>Delete</source>
+        <target>Șterge</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/product-detail/product-detail.component.html</context>
+          <context context-type="linenumber">18,19</context>
+        </context-group>
+        <note priority="1" from="description">delete button title</note>
+      </trans-unit>
+      <trans-unit id="8953033926734869941" datatype="html">
+        <source>Name</source>
+        <target>Nume</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/product-detail/product-detail.component.html</context>
+          <context context-type="linenumber">27,28</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/product-list/product-list.component.html</context>
+          <context context-type="linenumber">24,25</context>
+        </context-group>
+        <note priority="1" from="description">name label</note>
+      </trans-unit>
+      <trans-unit id="1806667489382256324" datatype="html">
+        <source>Category</source>
+        <target>Categorie</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/product-detail/product-detail.component.html</context>
+          <context context-type="linenumber">36,37</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/product-list/product-list.component.html</context>
+          <context context-type="linenumber">20,21</context>
+        </context-group>
+        <note priority="1" from="description">category label</note>
+      </trans-unit>
+      <trans-unit id="8894377483833272091" datatype="html">
+        <source>Price</source>
+        <target>Preț</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/product-detail/product-detail.component.html</context>
+          <context context-type="linenumber">42,43</context>
+        </context-group>
+        <note priority="1" from="description">price label</note>
+      </trans-unit>
+      <trans-unit id="4902817035128594900" datatype="html">
+        <source>Description</source>
+        <target>Descriere</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/product-detail/product-detail.component.html</context>
+          <context context-type="linenumber">48,49</context>
+        </context-group>
+        <note priority="1" from="description">description label</note>
+      </trans-unit>
+      <trans-unit id="5399259142359871119" datatype="html">
+        <source>Edit</source>
+        <target>Editați</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/product-editor/product-editor.component.html</context>
+          <context context-type="linenumber">3,6</context>
+        </context-group>
+        <note priority="1" from="description">The name of the table to display shopping cart items</note>
+        <note priority="1" from="meaning">page header shopping cart</note>
+      </trans-unit>
+      <trans-unit id="4785085987568323739" datatype="html">
+        <source> Products </source>
+        <target> Produse </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/product-list/product-list.component.html</context>
+          <context context-type="linenumber">4,7</context>
+        </context-group>
+        <note priority="1" from="description">The name of the table to display products</note>
+        <note priority="1" from="meaning">page header products</note>
+      </trans-unit>
+      <trans-unit id="2125174814176911088" datatype="html">
+        <source>Add new product</source>
+        <target> Adăugați un produs nou </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/product-list/product-list.component.html</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+        <note priority="1" from="description">Add new product button</note>
+      </trans-unit>
+      <trans-unit id="1315778327388476129" datatype="html">
+        <source>Checkout page</source>
+        <target>Pagina de verificare</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/product-list/product-list.component.html</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
+        <note priority="1" from="description">checkout button title</note>
+      </trans-unit>
+      <trans-unit id="762228006079275636" datatype="html">
+        <source> Price </source>
+        <target>Preț</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/product-list/product-list.component.html</context>
+          <context context-type="linenumber">28,29</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/shopping-cart-list/shopping-cart-list.component.html</context>
+          <context context-type="linenumber">20,21</context>
+        </context-group>
+        <note priority="1" from="description">price table header</note>
+      </trans-unit>
+      <trans-unit id="3193976279273491157" datatype="html">
+        <source>Actions</source>
+        <target>Acțiuni</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/product-list/product-list.component.html</context>
+          <context context-type="linenumber">32,33</context>
+        </context-group>
+        <note priority="1" from="description">actions table header</note>
+      </trans-unit>
+      <trans-unit id="6197534551380742539" datatype="html">
+        <source>Shopping cart items</source>
+        <target>Articole din coșul de cumpărături</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/shopping-cart-list/shopping-cart-list.component.html</context>
+          <context context-type="linenumber">4,5</context>
+        </context-group>
+        <note priority="1" from="description">The name of the table to display shopping cart items</note>
+        <note priority="1" from="meaning">page header</note>
+      </trans-unit>
+      <trans-unit id="5186038954367142316" datatype="html">
+        <source>Category</source>
+        <target>Categorie</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/shopping-cart-list/shopping-cart-list.component.html</context>
+          <context context-type="linenumber">12,13</context>
+        </context-group>
+        <note priority="1" from="description">category table header</note>
+      </trans-unit>
+      <trans-unit id="8778616811237742446" datatype="html">
+        <source> Name </source>
+        <target>Nume</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/shopping-cart-list/shopping-cart-list.component.html</context>
+          <context context-type="linenumber">16,17</context>
+        </context-group>
+        <note priority="1" from="description">name table header</note>
+      </trans-unit>
+      <trans-unit id="7008142592651374000" datatype="html">
+        <source> Quantity </source>
+        <target> Cantitate </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/shopping-cart-list/shopping-cart-list.component.html</context>
+          <context context-type="linenumber">24,25</context>
+        </context-group>
+        <note priority="1" from="description">quantity table header</note>
+      </trans-unit>
+      <trans-unit id="4360239040231802726" datatype="html">
+        <source> Actions </source>
+        <target> Acțiuni </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/shopping-cart-list/shopping-cart-list.component.html</context>
+          <context context-type="linenumber">28,29</context>
+        </context-group>
+        <note priority="1" from="description">actions table header</note>
+      </trans-unit>
+      <trans-unit id="2152542574517008887" datatype="html">
+        <source>Name</source>
+        <target>Nume</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/product-form/product-form.component.html</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+        <note priority="1" from="description"> Form field label for name</note>
+        <note priority="1" from="meaning">name label</note>
+      </trans-unit>
+      <trans-unit id="5434991001885423008" datatype="html">
+        <source>Name required</source>
+        <target>Nume obligatoriu</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/product-form/product-form.component.html</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+        <note priority="1" from="description"> Error for showing the wrong input</note>
+        <note priority="1" from="meaning">error name required</note>
+      </trans-unit>
+      <trans-unit id="6147486629885735996" datatype="html">
+        <source>Category</source>
+        <target>Categorie</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/product-form/product-form.component.html</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+        <note priority="1" from="description"> Form field label for category</note>
+        <note priority="1" from="meaning">category label</note>
+      </trans-unit>
+      <trans-unit id="6783904205388685216" datatype="html">
+        <source>Category required</source>
+        <target>Categorie obligatorie</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/product-form/product-form.component.html</context>
+          <context context-type="linenumber">22</context>
+        </context-group>
+        <note priority="1" from="description"> Error for showing the wrong input</note>
+        <note priority="1" from="meaning">error category required</note>
+      </trans-unit>
+      <trans-unit id="1729559508448915334" datatype="html">
+        <source>Image</source>
+        <target>Imagine</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/product-form/product-form.component.html</context>
+          <context context-type="linenumber">26</context>
+        </context-group>
+        <note priority="1" from="description"> Form field label for image</note>
+        <note priority="1" from="meaning">image label</note>
+      </trans-unit>
+      <trans-unit id="5321255096033501355" datatype="html">
+        <source>Required and must be correct Url!</source>
+        <target>Obligatoriu și trebuie să fie corect Url!</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/product-form/product-form.component.html</context>
+          <context context-type="linenumber">29</context>
+        </context-group>
+        <note priority="1" from="description"> Describes a hint for the user</note>
+        <note priority="1" from="meaning">hint required and correct url </note>
+      </trans-unit>
+      <trans-unit id="7018909990191757991" datatype="html">
+        <source>URL required</source>
+        <target>Adresa URL necesară</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/product-form/product-form.component.html</context>
+          <context context-type="linenumber">32</context>
+        </context-group>
+        <note priority="1" from="description"> Error for showing the wrong input</note>
+        <note priority="1" from="meaning">error url required</note>
+      </trans-unit>
+      <trans-unit id="1999926303679420586" datatype="html">
+        <source>Invalid URL </source>
+        <target>URL invalid</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/product-form/product-form.component.html</context>
+          <context context-type="linenumber">36</context>
+        </context-group>
+        <note priority="1" from="description"> Error for showing the wrong input</note>
+        <note priority="1" from="meaning">error invalid url </note>
+      </trans-unit>
+      <trans-unit id="844466285738363350" datatype="html">
+        <source>Price</source>
+        <target>Preț</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/product-form/product-form.component.html</context>
+          <context context-type="linenumber">41</context>
+        </context-group>
+        <note priority="1" from="description"> Form field label for price</note>
+        <note priority="1" from="meaning">price label</note>
+      </trans-unit>
+      <trans-unit id="7911027209341508652" datatype="html">
+        <source> Required and must be a correct number!</source>
+        <target>Obligatoriu și trebuie să fie un număr corect!</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/product-form/product-form.component.html</context>
+          <context context-type="linenumber">45</context>
+        </context-group>
+        <note priority="1" from="description"> Describes a hint for the user</note>
+        <note priority="1" from="meaning">hint required and correct price number </note>
+      </trans-unit>
+      <trans-unit id="1936046623097441578" datatype="html">
+        <source>Price required</source>
+        <target>Prețul necesar</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/product-form/product-form.component.html</context>
+          <context context-type="linenumber">49</context>
+        </context-group>
+        <note priority="1" from="description"> Error for showing the wrong input</note>
+        <note priority="1" from="meaning">error price required</note>
+      </trans-unit>
+      <trans-unit id="6575370195581551753" datatype="html">
+        <source>Invalid price input</source>
+        <target>Introducere de preț nevalidă</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/product-form/product-form.component.html</context>
+          <context context-type="linenumber">53</context>
+        </context-group>
+        <note priority="1" from="description"> Error for showing the wrong input</note>
+        <note priority="1" from="meaning">error invalid price </note>
+      </trans-unit>
+      <trans-unit id="776777401644473168" datatype="html">
+        <source>Description</source>
+        <target>Descriere</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/product-form/product-form.component.html</context>
+          <context context-type="linenumber">57</context>
+        </context-group>
+        <note priority="1" from="description"> Form field label for description</note>
+        <note priority="1" from="meaning">description label</note>
+      </trans-unit>
+      <trans-unit id="7928467700790937156" datatype="html">
+        <source>Description required</source>
+        <target>Descriere necesară</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/product-form/product-form.component.html</context>
+          <context context-type="linenumber">63</context>
+        </context-group>
+        <note priority="1" from="description"> Error for showing the wrong input</note>
+        <note priority="1" from="meaning">error description required</note>
+      </trans-unit>
+      <trans-unit id="2159130950882492111" datatype="html">
+        <source>Cancel</source>
+        <target>Anulare</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/product-form/product-form.component.html</context>
+          <context context-type="linenumber">73</context>
+        </context-group>
+        <note priority="1" from="description">cancel button</note>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,42 @@
+<div class="content-wrapper">
+    <div *ngIf="(loading$ |async) === false; else spinner">
+        <header class="header-styling">
+            <h1 i18n="sign in">Sign in</h1>
+        </header>
+        <form *ngIf="loginFormGroup" [formGroup]="loginFormGroup" (ngSubmit)="onSubmit()"
+            style="display: flex; flex-direction: column;">
+
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label i18n="username">Username</mat-label>
+                <input type="text" matInput [formControl]="usernameControl" [errorStateMatcher]="matcher">
+                <mat-hint i18n="hint required| Describes a hint for the user">Required!</mat-hint>
+                <mat-error
+                i18n="error username required| Error for showing the wrong input"
+                *ngIf="usernameControl.hasError('required')">Username required</mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label i18n="password">Password</mat-label>
+                <input type="password" matInput [formControl]="passwordControl" [errorStateMatcher]="matcher">
+                <mat-hint i18n="hint required| Describes a hint for the user">Required!</mat-hint>
+                <mat-error
+                i18n="error password required| Error for showing the wrong input"
+                *ngIf="passwordControl.hasError('required')">Password required</mat-error>
+            </mat-form-field>
+            <div class="button-section">
+                <button 
+                i18n="submit button"
+                mat-raised-button color="primary" class="styled-submit-button" type="submit"
+                    [disabled]="!loginFormGroup.valid">Submit</button>
+            </div>
+            <p
+            i18n="error credential| Invalid login credentials"
+            *ngIf="authFailed$|async" style="color: red;">Login failed! Invalid password and/or username!</p>
+        </form>
+    </div>
+    <ng-template #spinner>
+        <div class="spinner-wrapper-style">
+            <mat-spinner></mat-spinner>
+        </div>
+    </ng-template>
+</div>

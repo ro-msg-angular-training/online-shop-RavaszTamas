@@ -1,0 +1,33 @@
+@import "../../shared/styling/button-styling.scss";
+@import "../../shared/styling/table-styling.scss";
+@import "../../shared/styling/spinner.style.scss";
+
+.action-buttons {
+    display: flex;
+    justify-content: space-around;
+}
+
+.table-wrapper {
+    width: 100%;
+}
+
+
+.name-styling {
+    text-decoration: none !important;
+    color: inherit;
+    font-weight: bolder;
+}
+
+.my-fab-button{
+    margin:8px
+}
+
+.my-fab-button-big{
+    margin:16px;
+    width:80px;
+    height:80px;
+    font-size: 2em;
+}
+.my-fab-button-big .mat-icon{
+    transform: scale(1.75);
+}
